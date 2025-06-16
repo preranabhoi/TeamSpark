@@ -3,7 +3,8 @@ import dotenv from "dotenv"
 import cors from "cors"
 import db from "./utils/db.js"
 
-
+//import all routes
+import authRoutes from './routes/auth.routes.js';
 
 
 dotenv.config()
@@ -29,7 +30,8 @@ const port = process.env.PORT||3000;
 //connect to db
 db();
 
-
+//user routes
+app.use('/api/v1/auth', authRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
