@@ -5,6 +5,8 @@ import db from "./utils/db.js"
 
 //import all routes
 import authRoutes from './routes/auth.routes.js';
+import userRoutes from "./routes/user.routes.js";
+
 
 
 dotenv.config()
@@ -32,6 +34,7 @@ db();
 
 //user routes
 app.use('/api/v1/auth', authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
