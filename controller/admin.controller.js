@@ -1,6 +1,6 @@
 import User from "../model/user.model.js";
 
-export const getAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-password -verificationToken -resetPasswordToken -resetPasswordExpires");
 
@@ -17,7 +17,7 @@ export const getAllUsers = async (req, res) => {
 
 
 
-export const deleteUserById = async (req, res) => {
+const deleteUserById = async (req, res) => {
   try {
     const userId = req.params.id;
 
@@ -38,7 +38,7 @@ export const deleteUserById = async (req, res) => {
 
 
 
-export const updateUserRole = async (req, res) => {
+const updateUserRole = async (req, res) => {
   try {
     const userId = req.params.id;
     const { role } = req.body;
