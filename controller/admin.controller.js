@@ -70,3 +70,5 @@ export const updateUserRole = async (req, res) => {
     res.status(500).json({ message: "Error updating role", error });
   }
 };
+
+export {getAllUsers,deleteUserById,updateUserRole}
