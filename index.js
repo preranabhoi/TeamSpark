@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import db from "./utils/db.js"
+import cookieParser from "cookie-parser"
 import { errorHandler } from "./middleware/error.middleware.js";
 
 //import all routes
