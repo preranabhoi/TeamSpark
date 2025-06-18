@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const authenticateUser = (req, res, next) => {
+const authenticateUser = (req, res, next) => {
     let token;
   
     if (req.cookies && req.cookies.test) {
@@ -26,7 +26,7 @@ export const authenticateUser = (req, res, next) => {
   }
 };
 
-export const authorizeRoles = (...roles) => {
+ const authorizeRoles = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user?.role)) {
       return res.status(403).json({
@@ -37,3 +37,6 @@ export const authorizeRoles = (...roles) => {
     next();
   };
 };
+
+
+export{authenticateUser,authorizeRoles};
