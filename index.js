@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.routes.js';
 import userRoutes from "./routes/user.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import projectRoutes from "./routes/project.routes.js";
+import taskRoutes from "./routes/task.routes.js";
 
 
 
@@ -28,6 +29,9 @@ app.use(express.json());
 
 app.use(express.urlencoded({extended:true}));
 
+app.use(cookieParser());
+
+
 
 
 const port = process.env.PORT||3000;
@@ -40,6 +44,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/projects", projectRoutes);
+app.use("/api/v1/tasks", taskRoutes); 
 
 
 app.listen(port, () => {
