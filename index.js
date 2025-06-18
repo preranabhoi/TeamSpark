@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import db from "./utils/db.js"
+import { errorHandler } from "./middleware/error.middleware.js";
 
 //import all routes
 import authRoutes from './routes/auth.routes.js';
@@ -45,6 +46,10 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/tasks", taskRoutes); 
+
+
+
+app.use(errorHandler);
 
 
 app.listen(port, () => {
